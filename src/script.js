@@ -1,38 +1,29 @@
+const theme = document.querySelector("#themeLink");
 let darkMode = false;
 
 /**
- * Toggles the theme between dark and light mode and adjusts elements accordingly.
- *
- * @param makeDark - Whether the site turns dark or light.
- * @returns If the site is in dark mode or not.
- */
-function HideSvg(makeDark) {
-    const sun = document.getElementById("sun");
-    const moon = document.getElementById("moon");
-
-    if (makeDark) {
-        sun.style.display = "inline";
-        moon.style.display = "none";
-    } else {
-        sun.style.display = "none";
-        moon.style.display = "inline";
-    }
-
-    return makeDark
-}
-
-/**
- * Toggles the website between dark and light mode.
+ * Toggles the website between dark and light mode. This doesn't currently carry between pages which is a big issue
+ * because I don't want visitors to have to press the button on each page they visit.
  * @returns Nothing.
  */
-function ToggleDarkMode() {
-    const element = document.body;
-    element.classList.toggle("dark_mode");
+function ChangeTheme() {
+    const sun = document.querySelector("#sun");
+    const moon = document.querySelector("#moon");
 
-    // This changes the text accordingly.
-    if (!darkMode) {
-        darkMode = HideSvg(true)
+    if (darkMode) {
+        moon.style.display = "inline";
+        sun.style.display = "none";
+        darkMode = false;
     } else {
-        darkMode = HideSvg(false)
+        moon.style.display = "none";
+        sun.style.display = "inline";
+        darkMode = true;
     }
+
+    document.body.classList.toggle("darkMode")
 }
+
+window.addEventListener("DOMContentLoaded", () => {
+    const themeButton = document.querySelector(".themeButton");
+    themeButton.addEventListener("click", ChangeTheme);
+});

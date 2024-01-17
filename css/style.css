@@ -1,9 +1,11 @@
+/* style.css */
 :root {
-    --primary_color: ;
-    --secondary_color: ;
-    --accent_color: #a393bd;
-    --dark: #36454f;
+    --primary-color: ;
+    --secondary-color: ;
+    --accent-color: #a393bd;
+    /* Light and dark are switched when darkMode is enabled. */
     --light: #efebe8;
+    --dark: #36454f;
 }
 
 * {
@@ -16,11 +18,14 @@
     /* border: 1px solid black; Used for visual purposes during development. */
 }
 
-body {
-    height: 1000px;
+.darkMode {
+    --light: #36454f;
+    --dark: #efebe8;
+}
 
+body {
     background-color: var(--light);
-    color: black;
+    color: var(--dark);
     min-height: 100vh;
     position: relative;
 }
@@ -38,6 +43,25 @@ header {
 
 header button {
     position: relative;
+    justify-content: center;
+    padding: 5px calc((2.73px / 2) + 5px);
+    stroke: var(--light);
+    background-color: var(--dark);
+    border: none;
+    border-radius: 10px;
+}
+
+header button:hover {
+    filter: brightness(75%);
+}
+
+/* The SVG for the sun and moon both need to be opposite of the current dark/light mode setting. */
+header button #sun {
+    stroke: var(--light);
+}
+
+header button #moon {
+    stroke: var(--light);
 }
 
 main {}
@@ -53,12 +77,11 @@ footer {
 }
 
 .accent {
-    color: var(--accent_color);
+    color: var(--accent-color);
 }
 
-.dark_mode {
-    background-color: var(--dark);
-    color: white;
+#titleBox {
+    border-bottom: 2px solid var(--accent-color);
 }
 
 .imgContainer {
@@ -81,43 +104,36 @@ footer {
 }
 
 /* Navigation related classes and configurations */
-.navigation {
-    text-align: right;
-    border-radius: 8px;
-    padding: 20px;
-}
-
 .navigation a {
-    background: var(--secondary_color);
-    border-bottom: 2px solid black;
+    background: var(--secondary-color);
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: var(--dark);
     padding: 10px;
 }
 
 .navigation a:hover {
-    border-bottom: 4px solid black;
+    border-bottom-width: 5px;
+    border-color: var(--dark)
 }
 
 /* The idea here is to make links look like normal buttons */
 .navigation a:link {
-    color: black;
+    color: var(--dark);
     text-decoration: none;
 }
 
 .navigation a:visited {
-    color: black;
+    color: var(--dark);
     text-decoration: none;
 }
 
 .navigation a:hover {
-    color: black;
+    color: var(--dark);
     text-decoration: none;
 }
 
 .navigation a:active {
-    color: black;
+    color: var(--dark);
     text-decoration: none;
-}
-
-#titleBox {
-    border-bottom: 2px solid var(--accent_color);
 }

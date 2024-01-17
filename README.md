@@ -1,5 +1,3 @@
-# JacobZufall.github.io
+This is a work in progress and may not work correctly in its current state.
 
-My GitHub Page.
-
-Currently a work in progress.
+Sorry about that.

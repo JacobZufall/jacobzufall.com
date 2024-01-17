@@ -1,10 +1,11 @@
-/* light-mode.css */
+/* style.css */
 :root {
     --primary-color: ;
     --secondary-color: ;
     --accent-color: #a393bd;
-    --theme-main-color: #efebe8;
-    --theme-secondary-color: #36454f;
+    /* Light and dark are switched when darkMode is enabled. */
+    --light: #efebe8;
+    --dark: #36454f;
 }
 
 * {
@@ -17,9 +18,14 @@
     /* border: 1px solid black; Used for visual purposes during development. */
 }
 
+.darkMode {
+    --light: #36454f;
+    --dark: #efebe8;
+}
+
 body {
-    background-color: var(--theme-main-color);
-    color: var(--theme-secondary-color);
+    background-color: var(--light);
+    color: var(--dark);
     min-height: 100vh;
     position: relative;
 }
@@ -38,8 +44,9 @@ header {
 header button {
     position: relative;
     justify-content: center;
-    padding: 5px 6.365px; /* I know it's a weird number, but it's so it's a perfect square. */
-    background-color: var(--theme-secondary-color);
+    padding: 5px calc((2.73px / 2) + 5px);
+    stroke: var(--light);
+    background-color: var(--dark);
     border: none;
     border-radius: 10px;
 }
@@ -50,11 +57,11 @@ header button:hover {
 
 /* The SVG for the sun and moon both need to be opposite of the current dark/light mode setting. */
 header button #sun {
-    stroke: var(--theme-secondary-color);
+    stroke: var(--light);
 }
 
 header button #moon {
-    stroke: var(--theme-main-color);
+    stroke: var(--light);
 }
 
 main {}
@@ -101,32 +108,32 @@ footer {
     background: var(--secondary-color);
     border-bottom-style: solid;
     border-bottom-width: 2px;
-    border-bottom-color: var(--theme-secondary-color);
+    border-bottom-color: var(--dark);
     padding: 10px;
 }
 
 .navigation a:hover {
     border-bottom-width: 5px;
-    border-color: var(--theme-secondary-color)
+    border-color: var(--dark)
 }
 
 /* The idea here is to make links look like normal buttons */
 .navigation a:link {
-    color: var(--theme-secondary-color);
+    color: var(--dark);
     text-decoration: none;
 }
 
 .navigation a:visited {
-    color: var(--theme-secondary-color);
+    color: var(--dark);
     text-decoration: none;
 }
 
 .navigation a:hover {
-    color: var(--theme-secondary-color);
+    color: var(--dark);
     text-decoration: none;
 }
 
 .navigation a:active {
-    color: var(--theme-secondary-color);
+    color: var(--dark);
     text-decoration: none;
 }

@@ -1,24 +1,26 @@
 const theme = document.querySelector("#themeLink");
-const darkMode = "css/dark-mode.css";
-const lightMode = "css/light-mode.css";
+let darkMode = false;
 
 /**
- * Toggles the website between dark and light mode.
+ * Toggles the website between dark and light mode. This doesn't currently carry between pages which is a big issue
+ * because I don't want visitors to have to press the button on each page they visit.
  * @returns Nothing.
  */
 function ChangeTheme() {
     const sun = document.querySelector("#sun");
     const moon = document.querySelector("#moon");
 
-    if (theme.getAttribute("href") === lightMode) {
-        theme.href = darkMode;
-        sun.style.display = "inline";
-        moon.style.display = "none";
-    } else {
-        theme.href = lightMode;
-        sun.style.display = "none";
+    if (darkMode) {
         moon.style.display = "inline";
+        sun.style.display = "none";
+        darkMode = false;
+    } else {
+        moon.style.display = "none";
+        sun.style.display = "inline";
+        darkMode = true;
     }
+
+    document.body.classList.toggle("darkMode")
 }
 
 window.addEventListener("DOMContentLoaded", () => {

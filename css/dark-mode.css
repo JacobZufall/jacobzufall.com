@@ -1,0 +1,121 @@
+/* dark-mode.css */
+:root {
+    /* I'm not sure if this is appropriate. */
+    --theme-main-color: #36454f;
+    --theme-secondary-color: #efebe8;
+}
+
+* {
+    margin:  0;
+    padding: 0;
+
+    font-style: normal;
+    font-family: "Trebuchet MS", Tahoma, sans-serif;
+
+    /* border: 1px solid black; Used for visual purposes during development. */
+}
+
+body {
+    background-color: var(--theme-main-color);
+    color: var(--theme-secondary-color);
+    min-height: 100vh;
+    position: relative;
+}
+
+header {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+header button {
+    position: relative;
+    justify-content: center;
+    padding: 5px 6.365px; /* I know it's a weird number, but it's so it's a perfect square. */
+    background-color: var(--theme-secondary-color);
+    border: none;
+    border-radius: 10px;
+}
+
+header button:hover {
+    filter: brightness(75%);
+}
+
+main {}
+
+footer {
+    width: 100%;
+    position: absolute;
+    box-sizing: border-box;
+    text-align: center;
+    bottom: 0;
+    margin: auto 0;
+    padding: 10px;
+}
+
+.accent {
+    color: var(--accent-color);
+}
+
+#titleBox {
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.imgContainer {
+    margin: 20px;
+    padding: 20px;
+
+    justify-content: center;
+    display: grid;
+
+    grid-template-columns: 200px 200px;
+    grid-row: auto;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+
+.imgContainer img {
+    max-height: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Navigation related classes and configurations */
+.navigation a {
+    background: var(--secondary-color);
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: var(--theme-secondary-color);
+    padding: 10px;
+}
+
+.navigation a:hover {
+    border-bottom-width: 5px;
+    border-color: var(--theme-secondary-color)
+}
+
+/* The idea here is to make links look like normal buttons */
+.navigation a:link {
+    color: var(--theme-secondary-color);
+    text-decoration: none;
+}
+
+.navigation a:visited {
+    color: var(--theme-secondary-color);
+    text-decoration: none;
+}
+
+.navigation a:hover {
+    color: var(--theme-secondary-color);
+    text-decoration: none;
+}
+
+.navigation a:active {
+    color: var(--theme-secondary-color);
+    text-decoration: none;
+}

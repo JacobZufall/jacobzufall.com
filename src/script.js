@@ -1,38 +1,27 @@
-let darkMode = false;
-
-/**
- * Toggles the theme between dark and light mode and adjusts elements accordingly.
- *
- * @param makeDark - Whether the site turns dark or light.
- * @returns If the site is in dark mode or not.
- */
-function HideSvg(makeDark) {
-    const sun = document.getElementById("sun");
-    const moon = document.getElementById("moon");
-
-    if (makeDark) {
-        sun.style.display = "inline";
-        moon.style.display = "none";
-    } else {
-        sun.style.display = "none";
-        moon.style.display = "inline";
-    }
-
-    return makeDark
-}
+const theme = document.querySelector("#themeLink");
+const darkMode = "css/dark-mode.css";
+const lightMode = "css/light-mode.css";
 
 /**
  * Toggles the website between dark and light mode.
  * @returns Nothing.
  */
-function ToggleDarkMode() {
-    const element = document.body;
-    element.classList.toggle("dark_mode");
+function ChangeTheme() {
+    const sun = document.querySelector("#sun");
+    const moon = document.querySelector("#moon");
 
-    // This changes the text accordingly.
-    if (!darkMode) {
-        darkMode = HideSvg(true)
+    if (theme.getAttribute("href") === lightMode) {
+        theme.href = darkMode;
+        sun.style.display = "inline";
+        moon.style.display = "none";
     } else {
-        darkMode = HideSvg(false)
+        theme.href = lightMode;
+        sun.style.display = "none";
+        moon.style.display = "inline";
     }
 }
+
+window.addEventListener("DOMContentLoaded", () => {
+    const themeButton = document.querySelector(".themeButton");
+    themeButton.addEventListener("click", ChangeTheme);
+});

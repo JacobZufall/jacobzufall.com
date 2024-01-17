@@ -1,9 +1,10 @@
+/* light-mode.css */
 :root {
-    --primary_color: ;
-    --secondary_color: ;
-    --accent_color: #a393bd;
-    --dark: #36454f;
-    --light: #efebe8;
+    --primary-color: ;
+    --secondary-color: ;
+    --accent-color: #a393bd;
+    --theme-main-color: #efebe8;
+    --theme-secondary-color: #36454f;
 }
 
 * {
@@ -17,10 +18,8 @@
 }
 
 body {
-    height: 1000px;
-
-    background-color: var(--light);
-    color: black;
+    background-color: var(--theme-main-color);
+    color: var(--theme-secondary-color);
     min-height: 100vh;
     position: relative;
 }
@@ -38,6 +37,24 @@ header {
 
 header button {
     position: relative;
+    justify-content: center;
+    padding: 5px 6.365px; /* I know it's a weird number, but it's so it's a perfect square. */
+    background-color: var(--theme-secondary-color);
+    border: none;
+    border-radius: 10px;
+}
+
+header button:hover {
+    filter: brightness(75%);
+}
+
+/* The SVG for the sun and moon both need to be opposite of the current dark/light mode setting. */
+header button #sun {
+    stroke: var(--theme-secondary-color);
+}
+
+header button #moon {
+    stroke: var(--theme-main-color);
 }
 
 main {}
@@ -53,12 +70,11 @@ footer {
 }
 
 .accent {
-    color: var(--accent_color);
+    color: var(--accent-color);
 }
 
-.dark_mode {
-    background-color: var(--dark);
-    color: white;
+#titleBox {
+    border-bottom: 2px solid var(--accent-color);
 }
 
 .imgContainer {
@@ -81,43 +97,36 @@ footer {
 }
 
 /* Navigation related classes and configurations */
-.navigation {
-    text-align: right;
-    border-radius: 8px;
-    padding: 20px;
-}
-
 .navigation a {
-    background: var(--secondary_color);
-    border-bottom: 2px solid black;
+    background: var(--secondary-color);
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: var(--theme-secondary-color);
     padding: 10px;
 }
 
 .navigation a:hover {
-    border-bottom: 4px solid black;
+    border-bottom-width: 5px;
+    border-color: var(--theme-secondary-color)
 }
 
 /* The idea here is to make links look like normal buttons */
 .navigation a:link {
-    color: black;
+    color: var(--theme-secondary-color);
     text-decoration: none;
 }
 
 .navigation a:visited {
-    color: black;
+    color: var(--theme-secondary-color);
     text-decoration: none;
 }
 
 .navigation a:hover {
-    color: black;
+    color: var(--theme-secondary-color);
     text-decoration: none;
 }
 
 .navigation a:active {
-    color: black;
+    color: var(--theme-secondary-color);
     text-decoration: none;
-}
-
-#titleBox {
-    border-bottom: 2px solid var(--accent_color);
 }

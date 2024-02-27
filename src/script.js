@@ -1,24 +1,27 @@
 /**
  * This function checks localStorage to see what theme is currently enabled. If no theme is found, the default is made
- * to match the user's preference. The theme will default to light if all else fails.
- * @returns If dark mode is enabled or not.
+ * to match the user's preference.
+ * @returns True if dark mode is enabled and false if it isn't.
  */
 function CheckThemeMode(preferredMode = "light") {
     const browserTheme = localStorage.getItem("browserTheme");
-    let darkModeEnabled;
 
     if (!browserTheme) {
-        // I need to figure out a way to run this function based on the @media rule, but I have no idea how to fire it.
+        // I need to figure out a way to run this function when they change the page, but I'm not sure how.
         if (preferredMode === "dark") {
             localStorage.setItem("browserTheme", "dark");
-            darkModeEnabled = true;
+            return true;
         } else {
             localStorage.setItem("browserTheme", "light");
-            darkModeEnabled = false;
+            return false;
         }
+    } else switch ("dark") {
+        case browserTheme:
+            return true;
+        // Default is light mode. If I ever make more than two themes this will need to be fixed.
+        default:
+            return false;
     }
-
-    return darkModeEnabled;
 }
 
 /**
